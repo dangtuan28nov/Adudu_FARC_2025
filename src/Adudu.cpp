@@ -29,7 +29,7 @@ void setup()
   pwm.setPWMFreq(50);
   Wire.setClock(400000); 
 
-  //Connecting to your Controller
+  //Connecting to Controller
   Serial.println("Connecting to your Controller");
   int Error = -1;
   for (int i=0; i<10; i ++)

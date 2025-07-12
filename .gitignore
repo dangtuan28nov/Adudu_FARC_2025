@@ -1,0 +1,29 @@
+# Ignore CLion & CMake build files
+.idea/
+cmake-build-*/
+
+# Ignore VS Code files
+.vscode/
+
+# PlatformIO generated folders
+.pio/
+.pioenvs/
+.build/
+
+# OS files
+.DS_Store
+
+# Backup and log
+*.log
+*.tmp
+*.bak
+
+# Ignore compiled files
+*.elf
+*.bin
+*.hex
+*.exe
+*.o
+
+# Ignore user-specific configs
+*.iml
