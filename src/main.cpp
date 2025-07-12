@@ -12,7 +12,7 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #include <Servo.h>
 
 #define DEBUG
-#define PS2_DAT 12  // MISO
+#define PS2_DAT 12 // MISO
 #define PS2_CMD 13  // MOSI
 #define PS2_SEL 15  // SS
 #define PS2_CLK 14  // SLK
@@ -29,7 +29,7 @@ void setup()
   pwm.setPWMFreq(50);
   Wire.setClock(400000); 
 
-  //Connecting to Controller
+  //Connecting to your Controller
   Serial.println("Connecting to your Controller");
   int Error = -1;
   for (int i=0; i<10; i ++)
