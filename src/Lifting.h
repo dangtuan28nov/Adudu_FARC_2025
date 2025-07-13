@@ -1,15 +1,15 @@
 namespace Lifting {
   //Locations
-  constexpr int Up_1 = 12;
+  constexpr int Up_1 =   12;
   constexpr int Down_1 = 13;
-  constexpr int Up_2 = 10;
+  constexpr int Up_2 =   10;
   constexpr int Down_2 = 11;
 
   //Specifications
-  constexpr int Speed_Lift = 4000;
-  constexpr int Speed_Down = -200;
+  constexpr int Speed_Lift =      4000;
+  constexpr int Speed_Down =      -200;
   constexpr int Speed_Unchanged = 300; //The height of Lift is unchanged
-  constexpr int Speed_Climb = -4050; //Speed of DC motor for climbing
+  constexpr int Speed_Climb =     -4050; //Speed of DC motor for climbing
 
   //Blueprints for Lifting Motors
   class Scuderia_Lift {

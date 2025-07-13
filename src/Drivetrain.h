@@ -1,25 +1,25 @@
 namespace Drivetrain {
   //Locations
-  constexpr int Left_Up = 8;
-  constexpr int Left_Down = 9;
-  constexpr int Right_Up = 14;
+  constexpr int Left_Up =    8;
+  constexpr int Left_Down =  9;
+  constexpr int Right_Up =   14;
   constexpr int Right_Down = 15;
   
   //Specifications
-  constexpr int Max_Verstappen = 2300; //Max Speed
-  constexpr int Charles_Leclerc = 1750; //Normal Speed 
-  constexpr int Pit_Zone = 30; 
-  constexpr int Origin = 127;
-  constexpr float Smooth_Operator = 0.3;
+  constexpr int Max_Verstappen =    2300; //Max Speed
+  constexpr int Charles_Leclerc =   1750; //Normal Speed
+  constexpr int Pit_Zone =          30; //The area very close to Origin
+  constexpr int Origin =            127;
+  constexpr float Smooth_Operator = 0.3; //Use to smooth the change in speed
 
   class Scuderia_Drivetrain {
     public:
       void Update(){
-        static int Left_Speed = 0;
+        static int Left_Speed =  0;
         static int Right_Speed = 0;
-        static int Prev_Right = 0;
-        static int Prev_Left = 0;
-        static int Max_Speed = 0;
+        static int Prev_Right =  0;
+        static int Prev_Left =   0;
+        static int Max_Speed =   0;
 
         Max_Speed = (ps2x.Button(PSB_L1)) ? Charles_Leclerc : Max_Verstappen; //Use L1 to change the Speed
         int Left_Value = ps2x.Analog(PSS_LY); //Read Value from ps2x_Analog

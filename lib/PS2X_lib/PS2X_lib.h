@@ -163,15 +163,15 @@ typedef uint32_t port_mask_t;
 #define PSB_SQUARE      0x8000
 
 //Guitar  button constants
-#define UP_STRUM		0x0010
+#define UP_STRUM		  0x0010
 #define DOWN_STRUM		0x0040
 #define LEFT_STRUM		0x0080
 #define RIGHT_STRUM		0x0020
 #define STAR_POWER		0x0100
 #define GREEN_FRET		0x0200
 #define YELLOW_FRET		0x1000
-#define RED_FRET		0x2000
-#define BLUE_FRET		0x4000
+#define RED_FRET		  0x2000
+#define BLUE_FRET		  0x4000
 #define ORANGE_FRET		0x8000
 #define WHAMMY_BAR		8
 
