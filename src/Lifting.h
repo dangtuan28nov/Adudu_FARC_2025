@@ -6,7 +6,7 @@ namespace Lifting {
   constexpr int Down_2 = 11;
 
   //Specifications
-  constexpr int Speed_Lift = 3500;
+  constexpr int Speed_Lift = 4000;
   constexpr int Speed_Down = -200;
   constexpr int Speed_Unchanged = 300; //The height of Lift is unchanged
   constexpr int Speed_Climb = -4050; //Speed of DC motor for climbing
