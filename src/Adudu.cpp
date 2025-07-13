@@ -1,6 +1,6 @@
 #include <Wire.h>
 #include <ESP32Servo.h>
-#include <Adafruit_PWMServoDriver.h> 
+#include <Adafruit_PWMServoDriver.h>
 #include <PS2X_lib.h>
 
 PS2X ps2x;
@@ -12,7 +12,7 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #include <Servo.h>
 
 #define DEBUG
-#define PS2_DAT 12 // MISO
+#define PS2_DAT 12  // MISO
 #define PS2_CMD 13  // MOSI
 #define PS2_SEL 15  // SS
 #define PS2_CLK 14  // SLK
@@ -20,14 +20,14 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 // Setup
 void setup()
 {
-  #ifdef DEBUG
+#ifdef DEBUG
   Serial.begin(115200);
-  #endif
+#endif
 
   pwm.begin();
   pwm.setOscillatorFrequency(27000000);
   pwm.setPWMFreq(50);
-  Wire.setClock(400000); 
+  Wire.setClock(400000);
 
   //Connecting to Controller
   Serial.println("Connecting to your Controller");
@@ -50,12 +50,11 @@ void setup()
 void loop()
 {
   ps2x.read_gamepad();
-
   Servo_Motor();
   Lift();
-  Drive(); 
-  
-  #ifdef DEBUG
+  Drive();
+
+#ifdef DEBUG
   delay(10);
-  #endif
+#endif
 }
