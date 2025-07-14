@@ -11,10 +11,28 @@ namespace servo {
   constexpr int Down_1 = 160;
   constexpr int Down_2 = 20;
 
+  bool Status_1 = false;
+  bool Status_2 = false;
+  long Time_1 = 0;
+  long Time_2 = 0;
+  long Time_Out = 3000; //3 seconds
+
   //Blueprints for Servos
   class Scuderia_Servo {
     public:
       void Update(){
+        const long Present_Time = millis();
+        //Checking if Servo whether Servo is running for too long
+        if (Status_1 && Present_Time - Time_1 >= Time_Out) {
+          Status_1 = false;
+          pwm.setPWM (Servo_1,0,0);
+        }
+        if (Status_2 && Present_Time - Time_2 >= Time_Out) {
+          Status_2 = false;
+          pwm.setPWM (Servo_2,0,0);
+        }
+
+        //Check GamePad
         if (ps2x.Button(PSB_PAD_UP)){
           Set(Servo_1, Up_1); //Set(int Location, int Degree)
 
@@ -29,10 +47,18 @@ namespace servo {
         }
       }
     private:
-        static void Set(int Location, int Degree){
+      void Set(int Location, int Degree){
         int Servo_Value = map(Degree, 0, 180, 150, 600); //Turn Degree into PWM
-        Serial.println (Servo_Value);
         pwm.setPWM (Location, 0, Servo_Value);
+
+        if (Location == Servo_1) {
+          Status_1 = true;
+          Time_1 = millis();
+
+        } else if (Location == Servo_2) {
+          Status_2 = true;
+          Time_2 = millis();
+        }
       }
   };
 }

@@ -1,5 +1,4 @@
 #include <Wire.h>
-#include <ESP32Servo.h>
 #include <Adafruit_PWMServoDriver.h>
 #include <PS2X_lib/PS2X_lib.h> //Change to "#include <PS2X_Lib.h>" if you use Arduino.INO
 

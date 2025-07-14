@@ -13,31 +13,36 @@ namespace Lifting{
   constexpr int Speed_Climb =     -4050; //Speed of DC motor for climbing
 
   bool Climb_Status = false;
+  int Prev_Speed = 0;
 
   //Blueprints for Lifting Motors
   class Scuderia_Lift {
     public:
-      void Update(){
+      static void Update(){
         if (ps2x.ButtonPressed(PSB_L2)) Climb_Status = !Climb_Status;
 
         if (Climb_Status == true) {
           Set(Speed_Climb);
+          Prev_Speed = Speed_Climb;
 
         } else if (Climb_Status == false) {
           if (ps2x.Button(PSB_R1)) {
             Set(Speed_Lift);
+            Prev_Speed = Speed_Lift;
             
           } else if (ps2x.Button(PSB_R2)) {
             Set(Speed_Down);
+            Prev_Speed = Speed_Down;
 
           } else {
             Set(0);
+            Prev_Speed = 0;
           }
         }
       }
     private:
-      void Set(int Speed){
-        if (Speed == 0) {
+      static void Set(const int Speed){
+        if (Speed == 0 || Prev_Speed * Speed == -1 ) {
           //Making sure the motor does not change its direction incontinently
           pwm.setPWM (Up_1, 0, 0);
           pwm.setPWM (Up_2, 0, 0);
