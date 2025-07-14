@@ -1,3 +1,5 @@
+#pragma once
+
 namespace Drivetrain {
   //Locations
   constexpr int Left_Up =    8;
@@ -12,15 +14,15 @@ namespace Drivetrain {
   constexpr int Origin =            127;
   constexpr float Smooth_Operator = 0.3; //Use to smooth the change in speed
 
+  int Left_Speed =  0;
+  int Right_Speed = 0;
+  int Prev_Right =  0;
+  int Prev_Left =   0;
+  int Max_Speed =   0;
+
   class Scuderia_Drivetrain {
     public:
       void Update(){
-        static int Left_Speed =  0;
-        static int Right_Speed = 0;
-        static int Prev_Right =  0;
-        static int Prev_Left =   0;
-        static int Max_Speed =   0;
-
         Max_Speed = (ps2x.Button(PSB_L1)) ? Charles_Leclerc : Max_Verstappen; //Use L1 to change the Speed
         int Left_Value = ps2x.Analog(PSS_LY); //Read Value from ps2x_Analog
         int Right_Value = ps2x.Analog(PSS_RY);
@@ -33,7 +35,7 @@ namespace Drivetrain {
         Left_Speed = constrain(Smooth(Prev_Left, Left_Target), - Max_Speed, Max_Speed);
         Right_Speed = constrain(Smooth(Prev_Right, Right_Target), - Max_Speed, Max_Speed);
 
-        // After findinng the Speed, adjust the Prev Speed for next time
+        // After finding the Speed, adjust the Prev Speed for next time
         Prev_Left = Left_Speed;
         Prev_Right = Right_Speed;
 
@@ -76,13 +78,13 @@ namespace Drivetrain {
 }
 Drivetrain::Scuderia_Drivetrain Sainz;
 
-void Setup_Drivetrain(){
+inline void Setup_Drivetrain(){
   pwm.setPWM (Drivetrain::Left_Up ,0,0);
   pwm.setPWM (Drivetrain::Left_Down ,0,0);
   pwm.setPWM (Drivetrain::Right_Up ,0,0);
   pwm.setPWM (Drivetrain::Right_Down ,0,0);
   
 }
-void Drive(){
+inline void Drive(){
   Sainz.Update(); //Sainz = Name of the Drivetrain
 }

@@ -1,3 +1,5 @@
+#pragma once
+
 namespace servo {
   //Locations
   constexpr int Servo_1 = 2;
@@ -27,7 +29,7 @@ namespace servo {
         }
       }
     private:
-      void Set(int Location, int Degree){
+        static void Set(int Location, int Degree){
         int Servo_Value = map(Degree, 0, 180, 150, 600); //Turn Degree into PWM
         Serial.println (Servo_Value);
         pwm.setPWM (Location, 0, Servo_Value);
@@ -37,6 +39,6 @@ namespace servo {
 
 servo::Scuderia_Servo Schumacher; //Schumacher = Name of the Servos
 
-void Servo_Motor(){
+inline void Servo_Motor(){
   Schumacher.Update(); //Schumacher = Name of the Servos
 }

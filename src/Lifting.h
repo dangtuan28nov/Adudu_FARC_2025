@@ -1,21 +1,23 @@
-namespace Lifting {
+#pragma once
+
+namespace Lifting{
   //Locations
   constexpr int Up_1 =   12;
   constexpr int Down_1 = 13;
   constexpr int Up_2 =   10;
   constexpr int Down_2 = 11;
-
   //Specifications
   constexpr int Speed_Lift =      4000;
   constexpr int Speed_Down =      -200;
   constexpr int Speed_Unchanged = 300; //The height of Lift is unchanged
   constexpr int Speed_Climb =     -4050; //Speed of DC motor for climbing
 
+  bool Climb_Status = false;
+
   //Blueprints for Lifting Motors
   class Scuderia_Lift {
     public:
       void Update(){
-        static int Climb_Status = false; 
         if (ps2x.ButtonPressed(PSB_L2)) Climb_Status = !Climb_Status;
 
         if (Climb_Status == true) {
@@ -56,6 +58,6 @@ namespace Lifting {
 
 Lifting::Scuderia_Lift Leclerc; //Leclerc = Name of the Lifters
 
-void Lift(){
+inline void Lift(){
   Leclerc.Update(); //Leclerc = Name of the Lifters
 }
