@@ -39,9 +39,6 @@ namespace Drivetrain {
         Prev_Left = Left_Speed;
         Prev_Right = Right_Speed;
 
-        Serial.println(Left_Speed);
-        Serial.println(Right_Speed);
-
         // Set DriveTrain
         Set(Left_Up, Left_Down, Left_Speed);
         Set(Right_Up, Right_Down, Right_Speed);

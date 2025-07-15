@@ -9,6 +9,7 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #include <Drivetrain.h>
 #include <Lifting.h>
 #include <Servo.h>
+#include <Intake.h>
 
 #define DEBUG
 #define PS2_DAT 12  // MISO
@@ -16,6 +17,7 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define PS2_SEL 15  // SS
 #define PS2_CLK 14  // SLK
 
+int Error = -1;
 // Setup
 void setup()
 {
@@ -30,7 +32,7 @@ void setup()
 
   //Connecting to Controller
   Serial.println("Connecting to your Controller");
-  int Error = -1;
+  Error = -1;
   for (int i=0; i<10; i ++)
   {
     delay (1000);
@@ -48,11 +50,12 @@ void setup()
 
 void loop()
 {
-  ps2x.read_gamepad();
-  Servo_Motor();
-  Lift();
-  Drive();
-
+  if (Error == 0 ) {
+    ps2x.read_gamepad();
+    Servo_Motor();
+    Lift();
+    Drive();
+  }
 #ifdef DEBUG
   delay(10);
 #endif
