@@ -9,7 +9,6 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #include <Drivetrain.h>
 #include <Lifting.h>
 #include <Servo.h>
-#include <Intake.h>
 
 #define DEBUG
 #define PS2_DAT 12  // MISO
