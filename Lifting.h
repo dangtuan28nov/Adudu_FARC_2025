@@ -13,8 +13,8 @@ namespace Lifting{
   constexpr int Speed_Climb =     -4050; //Speed of DC motor for climbing
 
   bool Climb_Status = false;
-  long Time = 0;
-  long Time_Out = 30000; //max climb 30 seconds
+  unsigned long Time = 0;
+  unsigned long Time_Out = 30000; //max climb 30 seconds
   int Prev_Speed = 0;
 
   //Blueprints for Lifting Motors
@@ -54,7 +54,7 @@ namespace Lifting{
         }
       }
     private:
-      void Set(const int Speed){
+      static void Set(const int Speed){
         if (Speed == 0 || Prev_Speed * Speed == -1 ) {
           //Making sure the motor does not change its direction incontinently
           pwm.setPWM (Up_1, 0, 0);

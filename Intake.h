@@ -10,5 +10,4 @@ namespace InTake {
     constexpr int Up_2 =   160;
     constexpr int Down_1 = 160;
     constexpr int Down_2 = 20;
-
 }

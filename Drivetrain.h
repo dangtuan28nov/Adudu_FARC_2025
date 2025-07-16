@@ -22,7 +22,7 @@ namespace Drivetrain {
 
   class Scuderia_Drivetrain {
     public:
-      void Update(){
+      static void Update(){
         Max_Speed = (ps2x.Button(PSB_L1)) ? Charles_Leclerc : Max_Verstappen; //Use L1 to change the Speed
         int Left_Value = ps2x.Analog(PSS_LY); //Read Value from ps2x_Analog
         int Right_Value = ps2x.Analog(PSS_RY);
@@ -45,7 +45,7 @@ namespace Drivetrain {
       }
     
     private:
-      int Target(int Value, int Max_Speed){
+      static int Target(int Value, int Max_Speed){
         if (abs(Value - Origin) < Pit_Zone){
           return 0;
         }
@@ -55,11 +55,11 @@ namespace Drivetrain {
         return Speed;
       }
 
-      int Smooth(int Previous, int Target){
-        return Previous + Smooth_Operator * (Target - Previous);
+      static int Smooth(int Previous, int Target){
+        return Previous + (Target - Previous) * Smooth_Operator;
         }
 
-      void Set(int Up_Location, int Down_Location, int Speed){
+      static void Set(int Up_Location, int Down_Location, int Speed){
         if (Speed > 0){
           pwm.setPWM (Down_Location, 0, 0);
           pwm.setPWM (Up_Location, 0, Speed);
@@ -80,7 +80,6 @@ inline void Setup_Drivetrain(){
   pwm.setPWM (Drivetrain::Left_Down ,0,0);
   pwm.setPWM (Drivetrain::Right_Up ,0,0);
   pwm.setPWM (Drivetrain::Right_Down ,0,0);
-  
 }
 inline void Drive(){
   Sainz.Update(); //Sainz = Name of the Drivetrain
