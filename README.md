@@ -41,9 +41,7 @@ The **FPTU AI & Robotics Challenge 2025** is a nationwide Artificial Intelligenc
 
 ### Northern Region Achievements
 - 🥇 **Top 1/90 teams**, qualifying for the National Finals  
-- 🏆 **Top 5/24 alliances** in the Northern Finals  
-
---
+- 🏆 **Top 5/12 alliances** in the Northern Finals  
 
 ## About the Project
 The project is structured in a **modular design**, with header files for each main Robot subsystem and a main file `aDudu.cpp`.  
