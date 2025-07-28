@@ -6,10 +6,10 @@ namespace Out_Take{
   constexpr int Location_Back = 3;
 
   //Specifications
-  constexpr int Open_Front =    10;
-  constexpr int Close_Front =   70;
-  constexpr int Open_Back =     10;
-  constexpr int Close_Back =    70;
+  constexpr int Open_Front =    20;
+  constexpr int Close_Front =   110;
+  constexpr int Open_Back =     135;
+  constexpr int Close_Back =    97;
 
   struct Servo_State {
     bool Status = false; //False = Close && True = Open
@@ -19,12 +19,13 @@ namespace Out_Take{
   Servo_State Servo_Front, Servo_Back;
 
   //Values
-  long Time_Out = 5000; //5 seconds
+  long Time_Out = 700; //700ms
 
   //Blueprints for Servos
   class Scuderia_Servo {
     public:
       static void Update() {
+        //Making sure the Servos don't run for more than 700ms
         const unsigned long Present_Time = millis();
         if (Servo_Front.Turning && Present_Time - Servo_Front.Time >= Time_Out ) {
           Servo_Front.Turning = false;

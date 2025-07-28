@@ -7,8 +7,8 @@ namespace Lifting{
   constexpr int Up_2 =   10;
   constexpr int Down_2 = 11;
   //Specifications
-  constexpr int Speed_Lift =      2750;
-  constexpr int Speed_Down =      -200;
+  constexpr int Speed_Lift =      2550;
+  constexpr int Speed_Down =      -300;
   constexpr int Speed_Unchanged = 300; //The height of Lift is unchanged
   constexpr int Speed_Climb =     -4050; //Speed of DC motor for climbing
 
@@ -21,7 +21,7 @@ namespace Lifting{
   class Scuderia_Lift {
     public:
       void Update(){
-        if (ps2x.ButtonPressed(PSB_L2)) {
+        if (ps2x.ButtonPressed(PSB_BLUE)) {
           Climb_Status = !Climb_Status;
           if (Climb_Status) {
             Time = millis();
