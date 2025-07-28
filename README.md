@@ -9,7 +9,7 @@
 
 ### Thành tích vòng miền Bắc
 - 🥇 **Top 1/90 đội thi**, giành suất tham dự Chung kết Quốc gia  
-- 🏆 **Top 5/24 Liên minh** vòng Chung kết miền Bắc  
+- 🏆 **Top 5/12 Liên minh** vòng Chung kết miền Bắc  
 
 ---
 
