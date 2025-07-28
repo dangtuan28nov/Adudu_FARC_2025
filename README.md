@@ -11,8 +11,6 @@
 - 🥇 **Top 1/90 đội thi**, giành suất tham dự Chung kết Quốc gia  
 - 🏆 **Top 5/12 Liên minh** vòng Chung kết miền Bắc  
 
---
-
 ## Về Project
 Dự án được phát triển theo mô hình **module hóa**, với các file header quản lý từng cấu trúc của Robot và file chính `aDudu.cpp`.  
 
@@ -26,8 +24,6 @@ Tất cả đều là **mã nguồn mở**, được aDudu chia sẻ miễn phí
 Trong mỗi file, đội đã chú thích (comment) đầy đủ giải thích các thuật toán.  
 
 > 💡 Lưu ý: Project được viết và phát triển trên **CLion**. Nếu sử dụng **Arduino IDE**, hãy đổi tên `aDudu.cpp` thành `aDudu.ino`.  
-
---
 
 ## Liên hệ
 📩 Instagram chính thức của đội: [@ftc26749_adudu](https://www.instagram.com/ftc26749_adudu/)  
@@ -62,8 +58,6 @@ All files are **open-source**, shared by aDudu to support other teams.
 Each file includes detailed comments explaining the algorithms.  
 
 > 💡 Note: The project was developed using **CLion**. If using **Arduino IDE**, please rename `aDudu.cpp` to `aDudu.ino`.  
-
---
 
 ## Contact
 📩 Official Instagram: [@ftc26749_adudu](https://www.instagram.com/ftc26749_adudu/)  
